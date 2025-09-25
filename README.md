@@ -14,3 +14,5 @@ flux create source git fluxcd \
   --interval=10m
 kubectl get gitrepo -n flux-system
 
+kubectl apply -f clusters/minikube/kustomization.yaml
+kubectl get kustomizations -n flux-system
