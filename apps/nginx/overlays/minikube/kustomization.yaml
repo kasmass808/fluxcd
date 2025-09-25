@@ -1,2 +1,19 @@
 resources:
   - ../../base
+
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/type
+        value: NodePort
+    target:
+      kind: Service
+      name: nginx
+
+  - patch: |
+      - op: add
+        path: /spec/ports/0/nodePort
+        value: 30080
+    target:
+      kind: Service
+      name: nginx
